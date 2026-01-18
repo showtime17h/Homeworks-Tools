@@ -6,7 +6,7 @@ from datetime import datetime
 from playwright.sync_api import sync_playwright
 
 # --- 設定（GitHubのSecretsとGASのURL） ---
-GAS_URL = "あなたのGASウェブアプリURLをここに貼る"
+GAS_URL = "https://script.google.com/macros/s/AKfycbwO48RpNBqGm6q2Tj7tBQhVM3lCZFVxBiMm8I19K6WxCiZYWfLi882kqocW7relVAIK/exec"
 LINE_TOKEN = os.environ.get("LINE_TOKEN")
 LINE_USER_ID = os.environ.get("LINE_USER_ID")
 S_ID = "80009253"
