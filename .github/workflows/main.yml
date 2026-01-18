@@ -1,7 +1,7 @@
 name: Sananet Reminder
 on:
   schedule:
-    - cron: '0 23 * * *' # 日本時間の毎朝8時（UTC 23:00）
+    - cron: '0 22 * * *' # 日本時間の毎朝8時（UTC 23:00）
   workflow_dispatch: # 手動で動かすボタン
 
 jobs:
