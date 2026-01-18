@@ -1,0 +1,24 @@
+name: Sananet Reminder
+on:
+  schedule:
+    - cron: '0 23 * * *' # 日本時間の毎朝8時（UTC 23:00）
+  workflow_dispatch: # 手動で動かすボタン
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: |
+          pip install playwright requests
+          playwright install chromium
+      - name: Run script
+        run: python sananet_to_line.py
+        env:
+          LINE_TOKEN: ${{ secrets.LINE_TOKEN }}
+          LINE_USER_ID: ${{ secrets.LINE_USER_ID }}
