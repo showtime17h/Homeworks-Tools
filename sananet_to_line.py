@@ -19,10 +19,27 @@ def send_line(message):
     }
     data = {
         "to": LINE_USER_ID,
-        "messages": [{"type": "text", "text": message}]
+        "messages": [
+            {
+                "type": "text",
+                "text": message,
+                "quickReply": { # ここがボタンの設定
+                    "items": [
+                        {
+                            "type": "action",
+                            "action": {
+                                "type": "message",
+                                "label": "完了しました！✅",
+                                "text": "宿題終わったよ！"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
     }
     requests.post(url, headers=headers, data=json.dumps(data))
-
+    
 def get_sananet_data():
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
